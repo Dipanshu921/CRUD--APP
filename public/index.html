@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee CRUD</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer ></script>
+</head>
+<body>
+  <h1>Employee Details</h1>
+  <button onclick="openForm()">+ Add</button>
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Company Name</th>
+        <th>Company Details</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="employeeTable"></tbody>
+  </table>
+
+  <!-- Modal Form -->
+  <div id="formContainer" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2 id="formTitle">Add Employee</h2>
+      <form id="employeeForm">
+        <input type="hidden" id="empId">
+        <label>Company Name:</label>
+        <input type="text" id="companyName" required>
+        <label>Company Details:</label>
+        <textarea id="companyDetails" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
