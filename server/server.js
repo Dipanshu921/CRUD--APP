@@ -22,9 +22,15 @@ app.post('/employees', (req, res) => {
 });
 app.put('/employees/:id', (req, res) => {
   const index = employees.findIndex(e => e.id == req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ message: 'Employee not found' });
+  }
+
   employees[index] = { id: parseInt(req.params.id), ...req.body };
   res.json(employees[index]);
 });
+
 app.delete('/employees/:id', (req, res) => {
   employees = employees.filter(e => e.id != req.params.id);
   res.json({ message: 'Deleted' });
