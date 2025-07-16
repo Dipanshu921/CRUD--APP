@@ -28,8 +28,6 @@ function fetchEmployees() {
 }
 
 function openForm() {
-  form.reset();
-  empId.value = '';
   formContainer.style.display = 'block';
 }
 
@@ -44,6 +42,8 @@ form.onsubmit = e => {
     details: companyDetails.value
   };
   const id = empId.value;
+  console.log("Submitted ID:", empId.value); // just for testing
+  console.log("Parsed ID:", parseInt(empId.value));
   if (id) {
     fetch(`${API}/${id}`, {
       method: 'PUT',
@@ -60,6 +60,7 @@ form.onsubmit = e => {
 };
 
 function editEmployee(id) {
+  console.log("Editing ID:", id); // just for testing
   fetch(`${API}/${id}`)
     .then(res => res.json())
     .then(emp => {
